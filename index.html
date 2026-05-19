@@ -94,9 +94,7 @@
   .invite-line, .invite-para, .ornament,
   .detail-grid, .schedule-block, .venue-block,
   .map-block, .attire-row, .countdown-wrapper,
-  .action-buttons, .photo-upload-block, .photo-reveal { opacity:0; }
-
-  body.is-open .photo-reveal { animation: riseUp 1s ease 0.6s forwards; }
+  .action-buttons, .photo-upload-block { opacity:0; }
 
   /* ── HEADER ── */
   .header-band {
@@ -115,7 +113,7 @@
   .divider-line { width:160px; height:1px; background:linear-gradient(90deg,transparent,#b76e79,transparent); margin:20px auto 0; }
 
   /* ── FIGURES ── */
-  .illustration-row { display:flex; justify-content:center; align-items:flex-end; padding:0 20px; position:relative; }
+  .illustration-row { display:flex; justify-content:center; align-items:flex-end; padding:30px 20px 0; position:relative; gap:30px; }
   .figure { text-align:center; opacity:0; }
   body.is-open .figure-bride { animation:riseUp 1s ease 0.5s forwards; }
   body.is-open .figure-groom { animation:riseUp 1s ease 0.8s forwards; }
@@ -342,6 +340,8 @@
     #music-label{display:none}
     #music-btn{padding:12px 14px}
     .venue-block { padding: 20px 15px; }
+    .illustration-row { padding: 0 10px; gap: 15px; }
+    .figure img { max-height: 280px !important; }
   }
 </style>
 </head>
@@ -399,17 +399,21 @@
       <div class="divider-line"></div>
     </div>
 
-    <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; padding: 20px 20px 40px;" class="photo-reveal">
-      <div style="position: relative; width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(183,110,121,0.3); border-radius: 50%; background: linear-gradient(135deg, rgba(249,236,234,0.5), transparent);">
-
-        <div style="position: absolute; inset: 6px; border: 1px dashed rgba(183,110,121,0.5); border-radius: 50%; animation: float 4s ease-in-out infinite;"></div>
-
-        <div style="font-family: 'Cinzel Decorative', serif; font-size: 52px; color: var(--dusty-rose); text-shadow: 0 4px 15px rgba(183,110,121,0.2); line-height: 1; z-index: 2;">
-          R<span style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 32px; color: var(--rose-gold); margin: 0 2px;">&</span>M
-        </div>
+    <div class="illustration-row">
+      <div class="figure figure-bride">
+        <img src="images/bride.png" alt="The Bride" style="height: 100%; max-height: 380px; width: auto; filter: drop-shadow(0 8px 24px rgba(183,110,121,0.3));">
+        <div style="font-family:'Raleway',sans-serif;font-weight:200;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#8a4d5b;margin-top:8px;" data-i18n="lbl-bride">The Bride</div>
       </div>
-      <div style="font-family:'Raleway',sans-serif; font-weight:200; font-size:10px; letter-spacing:4px; text-transform:uppercase; color:#8a4d5b; margin-top:16px;">
-        Two Souls, One Heart
+
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:60px;gap:10px;flex:0 0 auto;">
+        <div style="font-size:30px;animation:float 3s ease-in-out infinite;">🪷</div>
+        <div style="width:1px;height:64px;background:linear-gradient(to bottom,rgba(183,110,121,0.5),transparent);"></div>
+        <div style="font-size:18px;color:#b76e79;font-family:'Cinzel Decorative',serif;">✦</div>
+      </div>
+
+      <div class="figure figure-groom">
+        <img src="images/groom.png" alt="The Groom" style="height: 100%; max-height: 380px; width: auto; filter: drop-shadow(0 8px 24px rgba(183,110,121,0.3));">
+        <div style="font-family:'Raleway',sans-serif;font-weight:200;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#8a4d5b;margin-top:8px;" data-i18n="lbl-groom">The Groom</div>
       </div>
     </div>
 
@@ -488,7 +492,6 @@
           </div>
           <div class="timeline-item">
             <div class="t-icon">✨</div>
-            <div class="t-time">4:20 PM</div>
             <div class="t-label" data-i18n="t-goingaway-title">Going Away</div>
             <div class="t-sublabel" data-i18n="t-goingaway-sub">The grand send-off</div>
           </div>
@@ -517,7 +520,7 @@
           <div class="map-overlay-label">
             <span class="map-pin-icon">📍</span>
             <span class="map-label-text">Araliya Beach Resort & Spa</span>
-            <a href="https://www.google.com/maps/dir/?api=1&destination=Araliya+Beach+Resort+%26+Spa,Unawatuna,Sri+Lanka&destination_place_id=ChIJJVMr81Jy4joRJYgR4HXCqMY" target="_blank" rel="noopener" class="map-link" data-i18n="map-btn">Get Directions ›</a>
+            <a href="https://www.google.com/maps/place/Araliya+Beach+Resort+%26+Spa+-+Unawatuna/@6.0084763,80.2424733,17z/data=!3m1!4b1!4m6!3m5!1s0x3ae173e0789ebd73:0xe4c32aa5217f4602!8m2!3d6.0084763!4d80.2424733!16s%2Fg%2F11j3fjr0hc" target="_blank" rel="noopener" class="map-link" data-i18n="map-btn">Get Directions ›</a>
           </div>
         </div>
       </div>
