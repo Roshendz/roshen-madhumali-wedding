@@ -594,7 +594,7 @@
 
       <input type="number" name="Number of Guests" class="rsvp-input" placeholder="Number of Guests (including you)" min="1" max="10">
 
-      <textarea name="Dietary/Wishes" class="rsvp-input" rows="3" placeholder="Dietary requirements or wishes for the couple..."></textarea>
+      <textarea name="Message to Couple" class="rsvp-input" rows="3" placeholder="Share your wishes and blessings for the couple..." data-i18n-placeholder="rsvp-message-placeholder"></textarea>
 
       <button type="submit" class="upload-btn" style="width: 100%; border: none; cursor: pointer;" data-i18n="rsvp-submit">Confirm Presence</button>
     </form>
@@ -658,7 +658,8 @@ const i18n = {
   "rsvp-yes": { en: "Yes, Joyfully Accept", si: "ඔව්, සතුටින් සහභාගී වෙමි", it: "Sì, parteciperò con gioia" },
   "rsvp-no": { en: "No, Regretfully Decline", si: "නැත, කනගාටුවෙන් වුවද සහභාගී විය නොහැක", it: "No, mi dispiace ma non potrò esserci" },
   "rsvp-submit": { en: "Confirm Presence", si: "තහවුරු කරන්න", it: "Conferma Presenza" },
-  "rsvp-thankyou": { en: "Thank you! Your response has been sent.", si: "ස්තූතියි! ඔබගේ ප්‍රතිචාරය ලැබුණි.", it: "Grazie! La tua risposta è stata inviata." }
+  "rsvp-thankyou": { en: "Thank you! Your response has been sent.", si: "ස්තූතියි! ඔබගේ ප්‍රතිචාරය ලැබුණි.", it: "Grazie! La tua risposta è stata inviata." },
+  "rsvp-message-placeholder": { en: "Share your wishes and blessings for the couple...", si: "ඔබගේ සුභ පැතුම් හා ආශිර්වාදය අප වෙත යොමු කරන්න...", it: "Condividi i tuoi auguri e benedizioni per la coppia..." }
 };
 
 let currentLang = 'en';
@@ -680,6 +681,13 @@ function changeLanguage(lang) {
       } else {
          el.innerHTML = i18n[key][lang];
       }
+    }
+  });
+
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (i18n[key] && i18n[key][lang]) {
+      el.placeholder = i18n[key][lang];
     }
   });
 
