@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="si">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -348,8 +348,8 @@
 <body>
 
 <div class="lang-switcher">
-  <button class="lang-btn active" onclick="changeLanguage('en')">EN</button>
-  <button class="lang-btn" onclick="changeLanguage('si')">සිං</button>
+  <button class="lang-btn" onclick="changeLanguage('en')">EN</button>
+  <button class="lang-btn active" onclick="changeLanguage('si')">සිං</button>
   <button class="lang-btn" onclick="changeLanguage('it')">IT</button>
 </div>
 
@@ -662,7 +662,7 @@ const i18n = {
   "rsvp-message-placeholder": { en: "Share your wishes and blessings for the couple...", si: "ඔබගේ සුභ පැතුම් හා ආශිර්වාදය අප වෙත යොමු කරන්න...", it: "Condividi i tuoi auguri e benedizioni per la coppia..." }
 };
 
-let currentLang = 'en';
+let currentLang = 'si';
 
 function changeLanguage(lang) {
   currentLang = lang;
@@ -703,6 +703,27 @@ function changeLanguage(lang) {
     document.getElementById('scratch-hint').textContent = i18n["revealed"][lang];
   }
 }
+
+// Initialize Sinhala as default language
+document.addEventListener('DOMContentLoaded', function() {
+  document.body.classList.add('lang-si');
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (i18n[key] && i18n[key]['si']) {
+      if(el.tagName === 'OPTION') {
+         el.textContent = i18n[key]['si'];
+      } else {
+         el.innerHTML = i18n[key]['si'];
+      }
+    }
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (i18n[key] && i18n[key]['si']) {
+      el.placeholder = i18n[key]['si'];
+    }
+  });
+});
 
 /* ══ ENVELOPE OPEN ══ */
 document.getElementById('seal-btn').addEventListener('click', function() {
